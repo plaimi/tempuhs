@@ -16,8 +16,6 @@ Maintainer  :  tempuhs@plaimi.net
 
 import Data.Text
   (Text)
-import Data.Time.Calendar
-  (fromGregorian)
 import Data.Time.Clock
   (DiffTime
   ,UTCTime (UTCTime)
@@ -34,6 +32,8 @@ import Database.Persist.TH
   ,persistLowerCase
   ,share
   ,sqlSettings)
+
+import Plailude
 
 -- | A 'ProperTime' is time measured by a 'Clock'.
 type ProperTime = Double
@@ -104,12 +104,13 @@ utcToJ2000 :: LeapSecondTable -> UTCTime -> ProperTime
 -- | 'utcToJ2000' converts 'UTCTime' to 'ProperTime' with J2000 as the epoch.
 utcToJ2000 lst = taiToJ2000 . utcToTAITime lst
 
-hmsToDiffTime :: Int -> Int -> Int -> DiffTime
+hmsToDiffTime :: Hour h -> Minute m -> Second s -> DiffTime
 -- | 'hmsToDiffTime' converts time of day in hours, minutes and seconds to the
 -- time from midnight as a 'DiffTime'.
-hmsToDiffTime h m s = secondsToDiffTime $ toInteger $ 3600 * h + 60 * m + s
+hmsToDiffTime = (secondsToDiffTime . timeVal) .:. asSeconds
 
-parseUTC :: Integer -> Int -> Int -> Int -> Int -> Int -> UTCTime
+parseUTC :: Year y -> Month mo -> Day d
+         -> Hour h -> Minute m -> Second s -> UTCTime
 -- | 'parseUTC' takes year, month and day in the Gregorian calendar, along
 -- with hours, minutes and seconds in UTC, and returns a 'UTCTime'.
-parseUTC y mo d h m s = UTCTime (fromGregorian y mo d) $ hmsToDiffTime h m s
+parseUTC y mo d h m s = fromGregorian y mo d `UTCTime` hmsToDiffTime h m s
