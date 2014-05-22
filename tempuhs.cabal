@@ -1,0 +1,20 @@
+name:                tempuhs
+version:             0.0.0
+synopsis:            Chronicler
+description:         This is the tempuhs chronicler library.
+homepage:            https://secure.plaimi.net/works/tempuhs
+license:             AGPL-3
+license-file:        LICENSE
+author:              plaimi
+maintainer:          tempuhs@plaimi.net
+copyright:           (c) plaimi 2014
+category:            Time
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Tempuhs.Chronology
+  other-extensions:    FlexibleContexts, GADTs, OverloadedStrings, QuasiQuotes, TemplateHaskell, TypeFamilies
+  build-depends:       base >=4.6 && <4.7, text >=1.1 && <1.2, time >=1.4 && <1.5, persistent-template >=1.3 && <1.4
+  hs-source-dirs:      src
+  default-language:    Haskell2010
