@@ -87,13 +87,13 @@ annum = 365.25 * day
 expRange :: ProperTime -> Double -> ProperTime -> TimeRange
 -- | 'expRange' gives a 'TimeRange' from an exponentiation with base ten and
 -- an uncertainty applied to the exponent.
-expRange factor e uncertainty = (f (-), f (+))
-  where f o = factor * 10 ** (e `o` uncertainty)
+expRange factor e uncertainty =
+  let f o = factor * 10 ** (e `o` uncertainty) in (f (-), f (+))
 
 linRange :: Double -> Double -> ProperTime -> TimeRange
 -- | 'linRange' gives a 'TimeRange' from a value with linear uncertainty.
-linRange val uncertainty unit = (f (-), f (+))
-  where f o = unit * (val `o` uncertainty)
+linRange val uncertainty unit =
+  let f o = unit * (val `o` uncertainty) in (f (-), f (+))
 
 taiToJ2000 :: AbsoluteTime -> ProperTime
 -- | 'taiToJ2000' converts TAI time to 'ProperTime' with J2000 as the epoch.
