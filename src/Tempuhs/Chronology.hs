@@ -15,23 +15,31 @@ Maintainer  :  tempuhs@plaimi.net
 -} module Tempuhs.Chronology where
 
 import Data.Text
-  (Text)
+  (
+  Text,
+  )
 import Data.Time.Clock
-  (DiffTime
-  ,UTCTime (UTCTime)
-  ,secondsToDiffTime)
+  (
+  DiffTime,
+  UTCTime (UTCTime),
+  secondsToDiffTime,
+  )
 import Data.Time.Clock.TAI
-  (AbsoluteTime
-  ,LeapSecondTable
-  ,diffAbsoluteTime
-  ,taiEpoch
-  ,utcToTAITime)
+  (
+  AbsoluteTime,
+  LeapSecondTable,
+  diffAbsoluteTime,
+  taiEpoch,
+  utcToTAITime,
+  )
 import Database.Persist.TH
-  (mkMigrate
-  ,mkPersist
-  ,persistLowerCase
-  ,share
-  ,sqlSettings)
+  (
+  mkMigrate,
+  mkPersist,
+  persistLowerCase,
+  share,
+  sqlSettings,
+  )
 
 import Plailude
 
