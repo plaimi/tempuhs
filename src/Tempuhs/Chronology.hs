@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GADTs             #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes       #-}
@@ -38,10 +39,13 @@ import Database.Persist.TH
   mkPersist,
   persistLowerCase,
   share,
-  sqlSettings,
   )
 
 import Plailude
+import Tempuhs.Internal
+  (
+  tempuhsSettings,
+  )
 
 -- | A 'ProperTime' is time measured by a 'Clock'.
 type ProperTime = Double
@@ -50,12 +54,12 @@ type TimeRange = (ProperTime, ProperTime)
 -- | A 'Weight' is used to signify the relative significance of a 'Timespan'.
 type Weight = Double
 
-share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
-Clock
+share [mkPersist tempuhsSettings, mkMigrate "migrateAll"] [persistLowerCase|
+Clock json
   name Text
   UniqueClock name
   deriving Show
-Timespan
+Timespan json
   parent TimespanId Maybe
   clock ClockId
   beginMin ProperTime
@@ -64,7 +68,7 @@ Timespan
   endMax ProperTime
   weight Weight
   deriving Show
-TimespanAttribute
+TimespanAttribute json
   timespan TimespanId
   key Text
   value Text
