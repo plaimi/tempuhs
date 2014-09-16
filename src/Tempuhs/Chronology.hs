@@ -57,23 +57,24 @@ type Weight = Double
 
 share [mkPersist tempuhsSettings, mkMigrate "migrateAll"] [persistLowerCase|
 Clock json
-  name Text
-  UniqueClock name
+  name                    Text
+  UniqueClock             name
   deriving Show
 Timespan json
-  parent TimespanId Maybe
-  clock ClockId
-  beginMin ProperTime
-  beginMax ProperTime
-  endMin ProperTime
-  endMax ProperTime
-  weight Weight
+  parent                  TimespanId Maybe
+  clock                   ClockId
+  beginMin                ProperTime
+  beginMax                ProperTime
+  endMin                  ProperTime
+  endMax                  ProperTime
+  weight                  Weight
+  rubbish                 UTCTime    Maybe
   deriving Show
 TimespanAttribute json
-  timespan TimespanId
-  name Text
-  value Text
-  UniqueTimespanAttribute timespan name
+  timespan                TimespanId
+  name                    Text
+  value                   Text
+  UniqueTimespanAttribute timespan   name
   deriving Show
 |]
 
