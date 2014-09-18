@@ -61,20 +61,33 @@ Clock json
   UniqueClock             name
   deriving Show
 Timespan json
-  parent                  TimespanId Maybe
+  parent                  TimespanId    Maybe
   clock                   ClockId
   beginMin                ProperTime
   beginMax                ProperTime
   endMin                  ProperTime
   endMax                  ProperTime
   weight                  Weight
-  rubbish                 UTCTime    Maybe
+  rubbish                 UTCTime       Maybe
   deriving Show
 TimespanAttribute json
   timespan                TimespanId
   name                    Text
   value                   Text
-  UniqueTimespanAttribute timespan   name
+  UniqueTimespanAttribute timespan name
+  deriving Show
+Permissions
+  timespan                TimespanId
+  role                    RoleId
+  own                     Bool
+  read                    Bool
+  write                   Bool
+  share                   Bool
+  UniquePermissions       timespan role
+  deriving Show
+Role json
+  name                    Text
+  UniqueRole              name
   deriving Show
 |]
 
