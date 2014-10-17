@@ -18,6 +18,7 @@ library
                        FlexibleInstances
                        GADTs
                        GeneralizedNewtypeDeriving
+                       MultiParamTypeClasses
                        OverloadedStrings
                        QuasiQuotes
                        TemplateHaskell
