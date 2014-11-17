@@ -88,7 +88,17 @@ Permissions
   deriving Show
 Role json
   name                    Text
-  UniqueRole              name
+  namespace               UserId
+  UniqueRole              namespace name
+  deriving Show
+User json
+  name                    Text
+  UniqueUser              name
+  deriving Show
+UserRole json
+  user                    UserId
+  role                    RoleId
+  UniqueUserRole          user role
   deriving Show
 |]
 
