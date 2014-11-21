@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
@@ -17,6 +18,10 @@ License     :  AGPL-3
 Maintainer  :  tempuhs@plaimi.net
 -} module Tempuhs.Chronology where
 
+import Control.Lens
+  (
+  makeFields,
+  )
 import Data.Text
   (
   Text,
@@ -104,6 +109,10 @@ UserRole json
   rubbish                 UTCTime         Maybe
   deriving Show
 |]
+
+makeFields ''Timespan
+makeFields ''User
+makeFields ''Role
 
 second :: ProperTime
 -- | 'second' is one SI second of proper time.
