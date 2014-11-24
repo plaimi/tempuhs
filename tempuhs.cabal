@@ -14,6 +14,9 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Tempuhs.Chronology
+  other-modules:       Tempuhs.Database
+                       Tempuhs.Functions
+                       Tempuhs.Types
   other-extensions:    FlexibleContexts
                        FlexibleInstances
                        FunctionalDependencies
