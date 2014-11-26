@@ -69,7 +69,7 @@ TimespanAttribute json
   value                   Text
   UniqueTimespanAttribute timespan name
   deriving Show
-Permissions
+Permissions json
   timespan                TimespanId
   role                    RoleId
   own                     Bool
