@@ -69,7 +69,7 @@ TimespanAttribute json
   value                   Text
   UniqueTimespanAttribute timespan name
   deriving Show
-Permissions json
+Permissionset json
   timespan                TimespanId
   role                    RoleId
   own                     Bool
@@ -77,7 +77,7 @@ Permissions json
   write                   Bool
   share                   Bool
   rubbish                 UTCTime         Maybe
-  UniquePermissions       timespan role
+  UniquePermissionset     timespan role
   deriving Show
 Role json
   name                    Text
@@ -102,4 +102,4 @@ UserRole json
 makeFields ''Timespan
 makeFields ''User
 makeFields ''Role
-makeFields ''Permissions
+makeFields ''Permissionset
