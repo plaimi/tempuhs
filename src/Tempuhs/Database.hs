@@ -76,6 +76,7 @@ Permissions json
   read                    Bool
   write                   Bool
   share                   Bool
+  rubbish                 UTCTime         Maybe
   UniquePermissions       timespan role
   deriving Show
 Role json
