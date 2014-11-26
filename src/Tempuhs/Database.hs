@@ -102,3 +102,4 @@ UserRole json
 makeFields ''Timespan
 makeFields ''User
 makeFields ''Role
+makeFields ''Permissions
