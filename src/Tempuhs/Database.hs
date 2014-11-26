@@ -75,7 +75,6 @@ Permissionset json
   own                     Bool
   read                    Bool
   write                   Bool
-  share                   Bool
   rubbish                 UTCTime         Maybe
   UniquePermissionset     timespan role
   deriving Show
