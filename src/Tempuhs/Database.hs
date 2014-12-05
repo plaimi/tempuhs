@@ -51,6 +51,7 @@ import Tempuhs.Types
 share [mkPersist tempuhsSettings, mkMigrate "migrateAll"] [persistLowerCase|
 Clock json
   name                    Text
+  rubbish                 UTCTime         Maybe
   UniqueClock             name
   deriving Show
 Timespan json
