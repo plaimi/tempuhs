@@ -99,6 +99,7 @@ UserRole json
 |]
 
 -- Make typeclasses and lenses for every field.
+makeFields ''Clock
 makeFields ''Timespan
 makeFields ''User
 makeFields ''Role
