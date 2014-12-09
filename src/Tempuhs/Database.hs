@@ -90,6 +90,12 @@ User json
   UniqueUser              name
   rubbish                 UTCTime         Maybe
   deriving Show
+UserAttribute json
+  user                    UserId
+  name                    Text
+  value                   Text
+  UniqueUserAttribute     user name
+  deriving Show
 UserRole json
   user                    UserId
   role                    RoleId
