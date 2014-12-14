@@ -113,3 +113,4 @@ makeFields ''Role
 makeFields ''Timespan
 makeFields ''TimespanAttribute
 makeFields ''User
+makeFields ''UserAttribute
