@@ -95,6 +95,7 @@ UserAttribute json
   user                    UserId
   name                    Text
   value                   Text
+  rubbish                 UTCTime         Maybe
   UniqueUserAttribute     user name
   deriving Show
 UserRole json
