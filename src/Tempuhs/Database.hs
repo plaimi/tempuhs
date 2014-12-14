@@ -54,6 +54,21 @@ Clock json
   rubbish                 UTCTime         Maybe
   UniqueClock             name
   deriving Show
+Permissionset json
+  timespan                TimespanId
+  role                    RoleId
+  own                     Bool
+  read                    Bool
+  write                   Bool
+  rubbish                 UTCTime         Maybe
+  UniquePermissionset     timespan role
+  deriving Show
+Role json
+  name                    Text
+  namespace               UserId
+  rubbish                 UTCTime         Maybe
+  UniqueRole              namespace name
+  deriving Show
 Timespan json
   parent                  TimespanId      Maybe
   clock                   ClockId
@@ -70,25 +85,10 @@ TimespanAttribute json
   value                   Text
   UniqueTimespanAttribute timespan name
   deriving Show
-Permissionset json
-  timespan                TimespanId
-  role                    RoleId
-  own                     Bool
-  read                    Bool
-  write                   Bool
-  rubbish                 UTCTime         Maybe
-  UniquePermissionset     timespan role
-  deriving Show
-Role json
-  name                    Text
-  namespace               UserId
-  UniqueRole              namespace name
-  rubbish                 UTCTime         Maybe
-  deriving Show
 User json
   name                    Text
-  UniqueUser              name
   rubbish                 UTCTime         Maybe
+  UniqueUser              name
   deriving Show
 UserAttribute json
   user                    UserId
@@ -99,14 +99,14 @@ UserAttribute json
 UserRole json
   user                    UserId
   role                    RoleId
-  UniqueUserRole          user role
   rubbish                 UTCTime         Maybe
+  UniqueUserRole          user role
   deriving Show
 |]
 
 -- Make typeclasses and lenses for every field.
 makeFields ''Clock
+makeFields ''Permissionset
+makeFields ''Role
 makeFields ''Timespan
 makeFields ''User
-makeFields ''Role
-makeFields ''Permissionset
