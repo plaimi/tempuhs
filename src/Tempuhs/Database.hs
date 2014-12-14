@@ -83,6 +83,7 @@ TimespanAttribute json
   timespan                TimespanId
   name                    Text
   value                   Text
+  rubbish                 UTCTime         Maybe
   UniqueTimespanAttribute timespan name
   deriving Show
 User json
