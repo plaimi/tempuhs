@@ -110,4 +110,5 @@ makeFields ''Clock
 makeFields ''Permissionset
 makeFields ''Role
 makeFields ''Timespan
+makeFields ''TimespanAttribute
 makeFields ''User
